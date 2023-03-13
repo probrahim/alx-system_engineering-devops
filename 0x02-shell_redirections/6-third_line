@@ -1,0 +1,3 @@
+#!/bin/bash
+readarray -t lines < iacta
+echo "${lines[2]}"
