@@ -1,3 +1,2 @@
 #!/bin/bash
-readarray -t lines < iacta
-echo "${lines[2]}"
+head -n 3 iacta | tail -n 1
