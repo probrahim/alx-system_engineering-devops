@@ -41,11 +41,11 @@ frontend clickviral-frontend
         default_backend clickviral-backend
 
 frontend clickviral-frontend-https
-        bind *:443 ssl crt /etc/letsencrypt/live/clickviral.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/clickviral.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend clickviral-backend
 
 backend clickviral-backend
         balance roundrobin
-        server 151666-web-01 54.237.100.56:80 check
+        server 151666-web-01 54.161.254.98:80 check
         server 151666-web-02 54.237.100.56:80 check
