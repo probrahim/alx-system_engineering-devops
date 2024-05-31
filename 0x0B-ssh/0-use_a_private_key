@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the server IP address
-SERVER_IP="18.206.232.208"
+SERVER_IP="54.237.43.66"
 
 # Connect to the server using the private key ~/.ssh/school and the user ubuntu
 ssh -i ~/.ssh/school ubuntu@$SERVER_IP
