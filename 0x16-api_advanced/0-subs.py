@@ -1,24 +1,28 @@
 #!/usr/bin/python3
+"""
+number of subscribers for a given subreddit
+"""
 
-"""requests HTTP """
 from requests import get
 
 
 def number_of_subscribers(subreddit):
     """
-    function that queries the Reddit API and returns the number of subscribers
+    function that queries the Reddit API
     """
 
-    if subreddit is None or not isinstance(subreddit, str):
+    if subreddit is None:
+        return 0
+    if not isinstance(subreddit, str):
         return 0
 
     user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
-    url_base = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    ml = get(url_base, headers=user_agent)
-    total = ml.json()
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    response = get(url, headers=user_agent)
+    results = response.json()
 
     try:
-        return total.get('data').get('subscribers')
+        return results.get('data').get('subscribers')
 
     except Exception:
         return 0
